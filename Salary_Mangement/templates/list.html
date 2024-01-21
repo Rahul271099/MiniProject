@@ -1,0 +1,28 @@
+{% include 'base/index.html' %} {% block content %}
+    <h2>Employee Salary List:</h2>
+    <table class="table table-primary" id="example">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for data in emp_salary %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{data.employee}}</td>
+                <td>{{data.salary}}</td>
+                <td>{{data.start_date}}</td>
+                <td>{{data.end_date}}</td>
+              </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <script>
+        new DataTable('#example');
+      </script>
+{% endblock %}

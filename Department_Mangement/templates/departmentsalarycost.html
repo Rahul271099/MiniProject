@@ -1,0 +1,23 @@
+<!-- department_salary_costs.html -->
+{% include 'base/index.html' %} {% block content %}
+<h1>Department-wise Salary Costs</h1>
+<table class="table" id="example">
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Total Salary Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for department_cost in department_salaries %}
+            <tr>
+                <td>{{ department_cost.employee__department__name }}</td>
+                <td>{{ department_cost.total_salary|default:"0" }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+    new DataTable('#example');
+</script>
+{% endblock %}

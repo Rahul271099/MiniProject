@@ -1,0 +1,8 @@
+<!-- department_salary_costs_form.html -->
+{% include 'base/index.html' %} {% block content %}
+<form method="post" action="{% url 'salary_report' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Generate Report</button>
+</form>
+{% endblock %}
